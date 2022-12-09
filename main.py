@@ -6,14 +6,14 @@ from pygame_widgets.button import Button
 from pygame_widgets.textbox import TextBox
 from src.game import get_cursor_position, move, search_valid_moves, set_tiles, search_tile, check_move_validity, eat
 from src.display import draw_checkerboard, draw_hints, draw_pawns
-from src.constants import WHITE, BLACK, RED, DARKER_RED, DARK_RED
+from src.constants import WHITE, BLACK, RED, DARKER_RED, DARK_RED, APP_RESOLUTION
 
 turn_color = WHITE
 
 
 def main():
     pygame.init()
-    window = pygame.display.set_mode((800, 850))
+    window = pygame.display.set_mode((APP_RESOLUTION[0],APP_RESOLUTION[1]))
     pygame.display.set_caption("checkers")
     clock = pygame.time.Clock()
 
@@ -56,7 +56,7 @@ def main():
     button = Button(
         window,
         400,
-        800,
+        APP_RESOLUTION[0],
         200,
         50,
         textColour=WHITE,
@@ -69,7 +69,7 @@ def main():
     textbox1 = TextBox(
         window,
         0,
-        800,
+        APP_RESOLUTION[0],
         200,
         50,
         fontSize=32,
@@ -82,7 +82,7 @@ def main():
     textbox2 = TextBox(
         window,
         200,
-        800,
+        APP_RESOLUTION[0],
         200,
         50,
         fontSize=32,
