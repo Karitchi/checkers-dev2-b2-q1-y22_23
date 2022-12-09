@@ -97,5 +97,25 @@ def eat(clicked_tile, selected_pawn, checkerboard):
     if abs(clicked_tile[0] - selected_pawn[0]) == 2:
         pawn_to_eat = (int((clicked_tile[0] + selected_pawn[0])/2),
                        int((clicked_tile[1] + selected_pawn[1])/2))
-        
+
         checkerboard[pawn_to_eat[0]][pawn_to_eat[1]].pawn = None
+
+
+def search_winner(checkerboard):
+    white_pawns_left = 0
+    black_pawns_left = 0
+
+    for y in range(8):
+        for x in range(8):
+            if checkerboard[y][x].pawn != None and checkerboard[y][x].pawn.color == WHITE:
+                white_pawns_left += 1
+            elif checkerboard[y][x].pawn != None and checkerboard[y][x].pawn.color == BLACK:
+                black_pawns_left += 1
+    
+    if black_pawns_left == 0:
+        return "white"
+    
+    elif white_pawns_left == 0:
+        return "black"
+
+
